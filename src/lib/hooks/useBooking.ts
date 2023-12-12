@@ -35,6 +35,8 @@ const useBooking = () => {
     if (noBookingInThisPlace) return false;
 
     const hasConflicts = currentBookings.some((item) => {
+      if(item.bookingId === booking.bookingId) return
+      
       const { dateFrom, dateTo } = item;
       return (
         dateConflicts(booking.dateFrom, dateFrom, dateTo) ||
