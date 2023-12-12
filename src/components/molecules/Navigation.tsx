@@ -39,6 +39,7 @@ const Navigation = ({ menuItems }: INavigation) => {
         showLabels
         value={value}
         onChange={(event, newValue) => {
+          event.preventDefault();
           setValue(newValue);
         }}
       >
