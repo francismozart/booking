@@ -1,8 +1,9 @@
 {
   "name": "booking",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Francis Mozart Andrade",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
