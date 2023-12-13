@@ -7,9 +7,7 @@ interface IPrimaryButton {
 
 const PrimaryButton = ({ children, onClick }: IPrimaryButton): JSX.Element => {
   return (
-    <PrimaryButtonStyled variant="outlined" fullWidth onClick={onClick}>
-      {children}
-    </PrimaryButtonStyled>
+    <PrimaryButtonStyled onClick={onClick}>{children}</PrimaryButtonStyled>
   );
 };
 
