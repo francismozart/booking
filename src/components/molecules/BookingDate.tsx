@@ -1,4 +1,4 @@
-import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { BookingDateContainer } from "../../styles/BookingDate.styled";
 import dayjs, { Dayjs } from "dayjs";
 import { useLayoutEffect } from "react";
@@ -32,23 +32,30 @@ const BookingDate = ({
     }
   }, [dateFrom, dateTo, onChangeTo]);
 
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    e.preventDefault();
+  };
+  const customTextField = {textField: { onKeyDown: onKeyDown }}
+
   return (
     <BookingDateContainer>
-      <MobileDatePicker
+      <DatePicker
         label="From"
         value={dateFrom}
         onChange={onChangeFrom}
         minDate={testMinDateFrom ?? tomorrow}
         closeOnSelect
         disablePast
+        slotProps={customTextField}
       />
-      <MobileDatePicker
+      <DatePicker
         label="To"
         value={dateTo}
         onChange={onChangeTo}
         minDate={testMinDateTo ?? aDayAfterDateFrom}
         closeOnSelect
         disablePast
+        slotProps={customTextField}
       />
     </BookingDateContainer>
   );
